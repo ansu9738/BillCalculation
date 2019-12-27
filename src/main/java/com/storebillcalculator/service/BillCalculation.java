@@ -1,5 +1,6 @@
 package com.storebillcalculator.service;
 
+import com.storebillcalculator.model.BillDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,10 +9,10 @@ public class BillCalculation {
 
     @Autowired
     BillCalculatorBuilder billCalculatorBuilder;
-    @GetMapping("/getDiscountedBill/{amount}/{status}")
+    @GetMapping("/getDiscountedBill/{amount}/{discountCategory}")
     @ResponseBody
-    public double  getGeneratedBill(@PathVariable("amount") double amount, @PathVariable("status") String status, @RequestParam String itemCategory) {
-        double calculatedBill = billCalculatorBuilder.generateBill(amount, status, itemCategory);
-        return calculatedBill;
+    public BillDetails getGeneratedBill(@PathVariable("amount") double amount, @PathVariable("discountCategory") String discountCategory, @RequestParam String itemCategory) {
+
+        return billCalculatorBuilder.generateBill(amount, discountCategory, itemCategory);
     }
 }

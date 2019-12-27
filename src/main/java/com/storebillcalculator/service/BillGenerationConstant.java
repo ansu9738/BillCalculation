@@ -2,6 +2,8 @@ package com.storebillcalculator.service;
 
 public class BillGenerationConstant {
 
+    private BillGenerationConstant(){}
+
     public static final int DEFAULT_DISCOUNT = 5;
     public static final String EMPLOYEE_OF_STORE = "employeeofstore";
     public static final String AFFILIATED_TO_THE_STORE = "affiliatedtothestore";
